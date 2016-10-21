@@ -1,1 +1,11 @@
-<h1>HOLA</h1>
+<div class="container play-area" tabindex="0" ng-keydown="($event.which === 37 && vm.moveLeft()) || ($event.which === 38 && vm.moveUp()) || ($event.which === 39 && vm.moveRight()) || ($event.which === 40 && vm.moveDown())">
+	<div class="row">
+		<label for="">Position X: </label> <input ng-model="vm.x" disabled>
+	</div>
+	<div class="row">
+		<label for="">Position Y: </label> <input ng-model="vm.y" disabled>
+	</div>
+	<div class="row">
+		<canvas drawing></canvas>
+	</div>
+</div>

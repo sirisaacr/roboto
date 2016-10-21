@@ -1,6 +1,6 @@
 class RobotController {
 
-  constructor(Robot) {
+  constructor() {
     this.x = 0;
     this.y = 0;
   }
@@ -10,35 +10,30 @@ class RobotController {
   }
 
   moveUp(){
-      if(this.x > 10){
+      if(this.x > 0){
         this.x = this.x - 10;
       }
-      return getPosition();
   }
 
   moveDown(){
-      if(this.x < 1000){
+      if(this.x < 600){
         this.x = this.x + 10;
       }
-      return getPosition();
   }
 
   moveRight(){
       if(this.y < 1000){
-        this.x = this.x - 10;
+        this.y = this.y + 10;
       }
-      return getPosition();
   }
 
   moveLeft(){
-      if(this.x > 10){
-        this.x = this.x + 10;
+      if(this.y > 0){
+        this.y = this.y - 10;
       }
-      return getPosition();
   }
 
 }
 
-RobotController.$inject = ['Todos'];
 // could also just export the class up top as well
 export {RobotController};

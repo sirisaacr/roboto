@@ -1,19 +1,27 @@
 //Importar el template y el style
-// import './app.scss';
+
 import template from './app.template.html';
 
 
 export const appDirective = () => {
   return {
-    // Utiliza la variable definida anteriormente y no es necesario utilizar el
-    // key : value
-    template,
-    // Permite utilizar un elemento con el nombre de la directiva en el html
-    // por ejemplo <app></app>
-    restrict: 'E',
-    // Crea un nuevo scope sin heredar
-    scope: {},
-    // Reemplaza el tag <app></app> por el contenido del templatre
-    replace: true
+    scope: true,
+    template: "<div class='ng-slider' ng-style='pos' ng-keydown='($event.which === 37 && vm.moveLeft()) || ($event.which === 38 && vm.moveUp()) || ($event.which === 39 && vm.moveRight()) || ($event.which === 40 && vm.moveDown())'></div>",
+    replace: true,
+    controller: function($scope, $interval) {
+
+      $scope.pos = {
+        top: 0,
+        left: 0
+      };
+      
+      $scope.newPos = function() {
+        // calculate however you'd like:
+        $scope.pos.top = Math.random() * 400 + "px";
+        $scope.pos.left = Math.random() * 500 + "px";
+      }
+
+      $interval($scope.newPos, 1000);
+    }
   };
 };
